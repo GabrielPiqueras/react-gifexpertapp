@@ -31,7 +31,6 @@ const AddCategory = ({ setCategories }) => {
 
     return(
         <form onSubmit={ handleSubmit }>
-            <h3>Añadir categoría</h3>
             <input
                 onChange={ handleInputChange }
                 id='category'

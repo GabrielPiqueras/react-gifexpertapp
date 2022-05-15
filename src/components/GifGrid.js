@@ -2,6 +2,8 @@ import React from 'react';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 import { GifGridItem } from './GifGridItem';
 
+import PropTypes from 'prop-types';
+
 // import { getGifs } from '../helpers/getGifs';
 
 /**
@@ -20,12 +22,9 @@ import { GifGridItem } from './GifGridItem';
  */
 
 export const GifGrid = ({ category }) => {
-  
-  const limit = 25;
-  const apiKey = 'fcDI2xFucYvAmjDsqiSssCWy65XEGKsM';
 
-  // Uso el mi hook personalizado
-  const { data: gifs, loading } = useFetchGifs(category, limit, apiKey);
+  // Uso mi hook personalizado que trae los gifs
+  const { data: gifs, loading } = useFetchGifs(category);
 
   return (
     <>
@@ -47,3 +46,7 @@ export const GifGrid = ({ category }) => {
     </>
   )
 }
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired, 
+} 

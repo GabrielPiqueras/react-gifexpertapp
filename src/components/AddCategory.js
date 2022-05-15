@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  * 5. Se reinicia el input para dejarlo vacío.
  * 
  */
-const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ setCategories }) => {
         
     const [ inputValue, setInputValue ] = useState('');
 
@@ -45,5 +45,3 @@ const AddCategory = ({ setCategories }) => {
 AddCategory.propTypes = {
     setCategories: PropTypes.func.isRequired,
 }
-
-export default AddCategory;

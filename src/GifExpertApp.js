@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AddCategory from "./components/AddCategory";
+import { AddCategory } from "./components/AddCategory";
 import { GifGrid } from "./components/GifGrid";
 
 /**
@@ -12,14 +12,15 @@ import { GifGrid } from "./components/GifGrid";
  * 4. Cada categoría de la lista se muestra a través del componente GifGrid, 
  * 4. Para añadir una nueva, se envía al componente hijo la función setCategories (Obligatoria), que allí permite añadir una nueva.
 */
-const GifExpertApp = () => {
+const GifExpertApp = ({ defaultCategories = [] }) => {
     
-    const [categories, setCategories] = useState(['Jon snow']);
+    const [categories, setCategories] = useState(defaultCategories);
     
     return(
         <>
             <h2>GifExpertApp</h2>
             <AddCategory setCategories={ setCategories } />
+
             <hr />
 
             {   

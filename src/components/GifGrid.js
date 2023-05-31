@@ -3,6 +3,7 @@ import { useFetchGifs } from '../hooks/useFetchGifs';
 import { GifGridItem } from './GifGridItem';
 
 import PropTypes from 'prop-types';
+import { Loading } from './Loading';
 
 // import { getGifs } from '../helpers/getGifs';
 
@@ -21,20 +22,18 @@ import PropTypes from 'prop-types';
  * 7. Pinto los gifs del array en html, con sus titulos e imagenes.
  */
 
-export const GifGrid = ({ category }) => {
+export const GifGrid = ({ prompt }) => {
 
   // Uso mi hook personalizado que trae los gifs
-  const { data: gifs, loading } = useFetchGifs(category);
-
+  const { data: gifs, loading } = useFetchGifs(prompt);
+  console.log('gifs', gifs);
   return (
     <>
-      <h3>{ category }</h3>
-
       {/* Más práctico de mostrar */}
-      { loading && <p>Cargando...</p> } 
+      { loading && <Loading color='green' size={8} /> } 
       {/* { loading ? <p>Cargando...</p>: <p>Otro mensaje.</p> } */}
 
-      <div className='card-grid'>
+      <div className='card-gri flex flex-wrap justify-center'>
           {
             // Usando el {...} sería como enviar el id, title y url como propiedades por separado (otra forma de hacerlo) en vez de pasarlo dentro de img
             gifs.map(gif =>
@@ -48,5 +47,5 @@ export const GifGrid = ({ category }) => {
 }
 
 GifGrid.propTypes = {
-  category: PropTypes.string.isRequired, 
+  prompt: PropTypes.string.isRequired, 
 } 

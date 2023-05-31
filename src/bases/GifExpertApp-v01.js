@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-const GifExpertApp = () => {
+const GifSearcher = () => {
     
-    const [categories, setCategories] = useState(['One Punch Man', 'One Piece', 'Naruto']);
+    const [categories, setPrompt] = useState(['One Punch Man', 'One Piece', 'Naruto']);
     
     const addCategory = () => {
-        // setCategories([...categories, 'Nueva categoría']);
+        // setPrompt([...categories, 'Nueva categoría']);
 
-        // De esta forma, uso el callback que tiene setCategories
+        // De esta forma, uso el callback que tiene setPrompt
         // Sería útil, porque recibo el estado anterior para retornar uno nuevo
-        setCategories( cats => [...categories, 'Nueva categoría']);
+        setPrompt( cats => [...categories, 'Nueva categoría']);
     }
 
     return(
         <>
-            <h2>GifExpertApp</h2>
+            <h2>GifSearcher</h2>
 
             <hr />
 
@@ -31,4 +31,4 @@ const GifExpertApp = () => {
     );
 }
 
-export default GifExpertApp;
+export default GifSearcher;

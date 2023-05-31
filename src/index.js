@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GifExpertApp from './GifExpertApp';
+import GifSearcher from './GifSearcher';
 import './index.css';
 
-ReactDOM.render(<GifExpertApp defaultCategories={['Jon snow']}/>, document.querySelector('#root'));
+ReactDOM.render(<GifSearcher />, document.querySelector('#root'));

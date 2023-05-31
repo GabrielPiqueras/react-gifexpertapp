@@ -1,18 +1,18 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import GifExpertApp from '../GifExpertApp';
+import GifSearcher from '../GifSearcher';
 
-describe('Pruebas en el componente <GifExpertApp />', () => {
+describe('Pruebas en el componente <GifSearcher />', () => {
     
-    test('<GifExpertApp /> se renderiza correctamente.', () => {
-        const wrapper = shallow(<GifExpertApp />);
+    test('<GifSearcher /> se renderiza correctamente.', () => {
+        const wrapper = shallow(<GifSearcher />);
         expect(wrapper).toMatchSnapshot();
     });
 
     test('Debe mostrar una lista de categorias', () => {
         const categories = ['One Piece', 'Juego de Tronos', 'Arcane'];
-        const wrapper = shallow(<GifExpertApp defaultCategories={categories} />);
+        const wrapper = shallow(<GifSearcher defaultCategories={categories} />);
 
         const grids = wrapper.find('GifGrid');
 

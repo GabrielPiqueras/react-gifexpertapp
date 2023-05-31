@@ -2,20 +2,20 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import '@testing-library/jest-dom';
-import { AddCategory } from '../../components/AddCategory';
+import { Searcher } from '../../components/Searcher';
 
-describe('Pruebas en <AddCategory />', () => {
+describe('Pruebas en <Searcher />', () => {
 
-    const setCategories = jest.fn();
+    const setPrompt = jest.fn();
     
-    let wrapper = shallow( <AddCategory setCategories={ setCategories } /> );
+    let wrapper = shallow( <Searcher setPrompt={ setPrompt } /> );
 
     beforeEach( () => {
         jest.clearAllMocks();
-        wrapper = shallow( <AddCategory setCategories={ setCategories } /> );
+        wrapper = shallow( <Searcher setPrompt={ setPrompt } /> );
     });
 
-    test('<AddCategory /> debe de mostrarse correctamente', () => {
+    test('<Searcher /> debe de mostrarse correctamente', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
@@ -31,10 +31,10 @@ describe('Pruebas en <AddCategory />', () => {
 
     test('NO debe de postear la información con submit', () => {
         wrapper.find('form').simulate('submit', { preventDefault(){} }); // Detenemos el evento con preventDefalt()
-        expect( setCategories ).not.toHaveBeenCalled(); // No debe haber sido llamado
+        expect( setPrompt ).not.toHaveBeenCalled(); // No debe haber sido llamado
     });
 
-    test('debe de llamar el setCategories y limpiar la caja de texto', () => {
+    test('debe de llamar el setPrompt y limpiar la caja de texto', () => {
 
         // Simulo change
         const value = 'Bobobo';
@@ -44,9 +44,9 @@ describe('Pruebas en <AddCategory />', () => {
         wrapper.find('form').simulate('submit', { preventDefault(){} });
         
         // SetCategories debe haber sido llamado
-        expect( setCategories ).toHaveBeenCalled(); // que haya sido llamada
-        expect( setCategories ).toHaveBeenCalledTimes(1); // que solo se llamó una vez
-        expect( setCategories ).toHaveBeenCalledWith( expect.any(Function)  ); // que haya sido llamada con una función (any = cualquier función)
+        expect( setPrompt ).toHaveBeenCalled(); // que haya sido llamada
+        expect( setPrompt ).toHaveBeenCalledTimes(1); // que solo se llamó una vez
+        expect( setPrompt ).toHaveBeenCalledWith( expect.any(Function)  ); // que haya sido llamada con una función (any = cualquier función)
         
         // El valor del input debe estar vacío
         const inputValue  = wrapper.find('input').prop('value');

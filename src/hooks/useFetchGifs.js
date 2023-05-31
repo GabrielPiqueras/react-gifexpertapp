@@ -8,11 +8,11 @@ ya que algo cambió */
 import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
 
-export const useFetchGifs = (category) => {
+export const useFetchGifs = (prompt) => {
     
     /* El estado será un objeto, con un array para la data y un loading a 'true',
     que indicará que cuando se utilice por primera vez este hook "si que cargue", por defecto */
-
+    
     const [ state, setState ] = useState({
         data: [],
         loading: true
@@ -20,7 +20,7 @@ export const useFetchGifs = (category) => {
 
     // Uso useEffect para controlar que solo cargue una vez
     useEffect(() => {
-        getGifs(category).then(gifs => {
+        getGifs(prompt).then(gifs => {
 
             setState({
                 data: gifs,

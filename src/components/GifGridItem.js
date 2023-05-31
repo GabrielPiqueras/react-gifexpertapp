@@ -4,6 +4,16 @@ import DownloadButton from './DownloadButton';
 
 export const GifGridItem = ({ id, title, url }) => {
 
+  const convertToSlug =(title)  => {
+    const slug = title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '') // Elimina caracteres especiales
+      .replace(/\s+/g, '-') // Reemplaza espacios en blanco con guiones
+      .replace(/--+/g, '-'); // Elimina guiones consecutivos
+    
+    return slug;
+  }
+
   return (
     <>
       {/* Nueva */}
@@ -12,8 +22,8 @@ export const GifGridItem = ({ id, title, url }) => {
         <div className="py-4">
           <div className="pl-6 pr-4 font-bold text-xl mb-2 flex justify-end items-start">
             { title }
-            <DownloadButton gifUrl={ url } fileName="nombre-del-archivo.gif" />
-
+            <DownloadButton gifUrl={ url } fileName={ convertToSlug(title) } />
+            
             </div>
           
         </div>

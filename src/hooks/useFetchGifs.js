@@ -27,7 +27,7 @@ export const useFetchGifs = (prompt) => {
                 loading: false
             });
         });
-    }, []);
+    }, [prompt]);
 
     return state; // { data: [], loading: true }
 }
